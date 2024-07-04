@@ -18,7 +18,7 @@ function App() {
         </section>
       </main>
       <footer>
-        <P>&copy; 2024 My website</P>
+        <p>&copy; 2024 My website</p>
       </footer>
     </div>
   );
