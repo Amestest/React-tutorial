@@ -34,6 +34,9 @@ const TicTapToe = () => {
         if(number===nextNumber){
             if(number === 9){
                 setMessage('축하합니다. 모든 숫자를 순서대로 클릭했습니다.');
+                // setIsCorrect(true);
+                // 9까지왔으면 다음 숫자를 10으로 만들어줌
+                setNextNumber(nextNumber + 1);
             } else{
                 setNextNumber(nextNumber + 1);
             }
@@ -61,10 +64,12 @@ const TicTapToe = () => {
             ))}
         </div>
         <p>{message}</p>
-        {/*예를 들어 수를 모두 맞출 경우에만 다음단계로 이동버튼보여주기*/}
+        {/*예를 들어 수를 모두 맞출 경우에만 다음단계로 이동버튼보여주기
+            다음단계로 이동버튼이 나오기 위해서 nextNumber 숫자값이 10일 때 다음 단계로 이동 버튼이 나오게 설정
+        */}
         <button className="restart-button" onClick={재시작버튼}>게임 재시작</button>
         
-        <Link to="/tictaptoetwostep"><button>다음단계로 이동</button></Link>  
+        {nextNumber > 9 && (<Link to="/tictaptoetwostep"><button>다음단계로 이동</button></Link>)} 
         </div>
     )
 }
