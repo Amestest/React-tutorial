@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useEffect, useState} from "react";
 import './TicTapToe.css';
 import { Link } from 'react-router-dom';
 /*
@@ -28,6 +28,18 @@ const TicTapToe = () => {
     
     // 게임 상태에 따라 사용자한테 보여줄 메세지를 표현
     const[message, setMessage] = useState(''); //처음에는 할 말이 없기 때문에 빈공간
+    const[timer, setTimer] = useState(10);
+    
+    useEffect(() =>{
+        let countdown;
+        if(timer > 0){
+            countdown = setTimeout(() =>{
+                setTimer(timer - 1);
+            }, 1000);
+        } else if(timer === 0){
+            alert("시간초과! 게임이 종료 되었습니다.");
+        }
+    })
     
     const 숫자클릭하기 = (number) =>{
         //만약에 현재 사용자가 클릭해야하는 숫자와 사용자가 클릭한 숫자가 서로 일치하는가 ?
@@ -50,11 +62,13 @@ const TicTapToe = () => {
         setNextNumber(1);
     // 메세지 세팅
          setMessage('');
+         setTimer(10);
     }
     return(
 
         <div className="tictaptoe-container">        
         <h1>틱탭토</h1>
+        <div className="timer">남은시간 : {timer} 초 </div>
         <div class="tictaptoe-grid">
             {numbers.map((number)=>(
                 <button className="tictaptoe-button"
