@@ -17,14 +17,12 @@ const Axios_Ex2 = () => {
         <>
         <h1>json안에 작성된 내용 가져오기</h1>
         <ul>
-            {customElements.map(comment=>(
-                    <li key={ }>
-                        <strong>UserID : </strong>{ }<br/>
-                        <strong>ID : </strong>{ }<br/>
-                        <strong>Title : </strong>{ }<br/>
-                        <strong>Completed : </strong>{ }<br/>
-
-
+            {comments.map(comment=>(
+                    <li key={ comment.id}>
+                        <strong>UserID : </strong>{comment.id }<br/>
+                        <strong>Name : </strong>{comment.name }<br/>
+                        <strong>Email : </strong>{comment.email }<br/>
+                        <strong>Body : </strong>{comment.body }<br/>
 
                     </li>
 
