@@ -1,16 +1,23 @@
 import React, {useState} from "react";
 
+/*
+F12 를 누르고 console(콘솔) 창에서
+error 가 없는지 확인
+만약 error가 뜬다면
+백엔드 서버와 연결이 안됐을 가능성이 높음
+
+*/
 
 const Signup = () => {
     const [id, setId] = useState('');
     const [pw, setPw] = useState('');
     const [pwCheck, setPwCheck] = useState('');
     const [name, setName] = useState('');
+   
     const [result, setResult] = useState('');
 
-    //아이디 중복검사와 중
-    const [idValidation, setIdValidation] = useState(false);
-    // false = 사용불가  true = 사용가능
+    //아이디 중복검사
+    const [idValidation, setIdValidation] = useState(false); // false = 사용불가  true = 사용가능
 
     //아이디 중복검사 이벤트 핸들러
     const 아이디중복검사 = (eventId) => {
@@ -39,7 +46,6 @@ const Signup = () => {
                 setIdValidation(true);
             } else {
                 setIdValidation(false);
-
             }
         })
     }
@@ -52,10 +58,11 @@ const Signup = () => {
             return;
         }
         //비밀번호, 비밀번호 확인이 일치하지 않으면 가입X
-        if(pw !== pwCheck){
-            alert('비밀번호가 일치하지 안ㅅ습니다.');
+        if(pw !== pwCheck) {
+            alert('비밀번호가 일치하지 않습니다.');
             return;
         }
+
         //회원가입 비동기 요청
         const input값들 = {}; //처음엔 들어온 값이 없으니 빈공간으로 설정
         input값들.id = id; //id값이 들어오면 input값들에 id값을 작성해달라 설정
@@ -67,12 +74,12 @@ const Signup = () => {
               input값들 = {khT, khT1234};
         */
 
-        fetch("/signUp", {
+        fetch("/signup", {
             //Spring Boot Container에 @PostMapping("/signUp") 에 전달하겠다는 표시
             method : "POST", 
             
             // headers : 메일로 치면 메일주소, 메일제목처럼 초기에 어떤 것을 보내는지 설정
-            headers : {"Content-Type" : "applicaion/json"},
+            headers : {"Content-Type" : "application/json"},
             //<form> 태그에는 "Content-Type" : "applicaion/json" 기본으로 생략돼서 작성
             // Content-Type은 왜 작성해야 하는가? 
             //데이터를 전달할 때 이미지파일, 동영상 파일인지, 다중이미지파일인지 글자만 있는지 정보 전달
@@ -91,6 +98,9 @@ const Signup = () => {
                 //input 값들 모두 초기화
                 setId('');
                 setPw('');
+                setPwCheck('');
+                setName('');
+               // setResult('');
             } else {
                 setResult('회원가입 실패~!');
             }
@@ -138,7 +148,6 @@ const Signup = () => {
                 value={name}
                 />
             </label>
-            
             <button onClick={회원가입버튼}>가입하기</button>
             
             <hr/>

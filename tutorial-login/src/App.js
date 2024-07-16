@@ -3,6 +3,7 @@ import LoginContext from './components/LoginContext';
 import Signup from "./components/SignUp";
 import Login from "./components/Login";
 import './App.css';
+import TodoList from './components/TodoList';
 
 /* 현재 App.js는 제일 위에 있는 컴포넌트 = 객체*/
 function App() {
@@ -31,7 +32,9 @@ function App() {
     {/*로그인을 해야지 TodoList 확인 가능*/}
     <Login/>
 
-
+    <hr/>
+    {/* 로그인이 되었을 때 로그인한 회원의 TodoList 출력*/}
+    {loginMember && (<TodoList/>)}
 
 
 
