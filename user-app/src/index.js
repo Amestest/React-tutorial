@@ -1,17 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-//import App from './App';
+import App from './App';
 import reportWebVitals from './reportWebVitals';
 import TodoList from './TodoList';
 import {BrowserRouter} from 'react-router-dom';
 
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <BrowserRouter>
-    
-    <TodoList/>
-  </BrowserRouter>
+  <React.BrowserRouter>    
+    <App/>
+  </React.BrowserRouter>
 );
 
 // If you want to start measuring performance in your app, pass a function
