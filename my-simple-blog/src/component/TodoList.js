@@ -54,7 +54,7 @@ function TodoList() {
         표기를 할 때 style 태그를 이용해서 표기
         textDecoration = 밑줄
         만약에 할 일이 true 이면 line-through
-              할 일이 false 이면 none 이용해 줄 삭제
+        할 일이 false 이면 none 이용해 줄 삭제
         line-through = 중간에 줄긋기
         overline = 글자 위에 선을 만듦
         underline = 글자 아래에 선을 만듦 a 태그에 기본값으로 들어있는 line
