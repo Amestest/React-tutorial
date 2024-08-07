@@ -1,6 +1,6 @@
-import logo from './logo.svg';
-import './App.css';
 import {useState} from 'react';
+import './App.css';
+
 
 function UserList() {
   //유저 초기 목록과 유저가 추가될 목록을 담을 변수명을 설정
